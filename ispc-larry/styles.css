@@ -1,0 +1,2283 @@
+@charset "utf-8";
+/*
+    File: styles.css
+    Script: ISPC-larry
+    Script URI: https://github.com/foe-services/ispc-larry
+    Author: Foe Services
+    Author URI: http://www.foe-services.de/
+*/
+
+/* global
+-------------------------------------------------------------- */
+body {
+    font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333;
+    background: url("images/bg_linen.jpg") repeat #d1d5d8;
+    margin: 0;
+}
+body.noscroll {	overflow: hidden; /* also avoids bounce effect in Chrome and Safari */ }
+a { color: #0069a6; }
+a:visited { color: #0186ba; }
+img { border: 0; }
+h1 {
+    float: left;
+    margin: 0;
+}
+.bold { font-weight: bold; }
+
+/* global/tables
+-------------------------------------------------------------- */
+
+table {
+    background: -moz-linear-gradient(center top , #F7F7F7 0%, #EEEEEE 100%) repeat scroll 0 0 transparent;
+    background: -webkit-gradient(linear , left top, left bottom, color-stop(0%,#F7F7F7), color-stop(100%,#EEEEEE));
+    background: -o-linear-gradient(center top , #F7F7F7 0%, #EEEEEE 100%) repeat scroll 0 0 transparent;
+    background: -ms-linear-gradient(center top , #F7F7F7 0%, #EEEEEE 100%) repeat scroll 0 0 transparent;
+    background: linear-gradient(center top , #F7F7F7 0%, #EEEEEE 100%) repeat scroll 0 0 transparent;
+    border: 0 none;
+    border-radius: 5px 5px 5px 5px;
+    margin: 0 0 12px;
+    padding: 8px;
+    border-collapse: collapse;
+    margin-bottom: 0.5em;
+}
+th, td {
+    padding: 0.5em;
+    text-align: left;
+}
+table.list {
+    border: 1px solid #D3D3D3 !important;
+    width: 100%;
+}
+table.list tr:hover,
+#submenu li:hover {
+    background-color: #FFFACD;
+}
+table.list .tbl_col_buttons {
+    width: 120px;
+}
+table.list thead th {
+    background: linear-gradient(center top , #F0F0F0 0%, #D6D6D6 100%) repeat scroll 0 0 transparent;
+    background: -o-linear-gradient(center top , #F0F0F0 0%, #D6D6D6 100%) repeat scroll 0 0 transparent;
+    background: -moz-linear-gradient(center top , #F0F0F0 0%, #D6D6D6 100%) repeat scroll 0 0 transparent;
+    background: -webkit-gradient(linear , left top, left bottom, color-stop(0%,#F0F0F0), color-stop(100%,#D6D6D6));
+    background: -ms-linear-gradient(center top , #F0F0F0 0%, #D6D6D6 100%) repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #CFCFCF;
+}
+table.list thead tr {
+    border-radius: 5px 5px 0 0;
+}
+table.list tbody td,
+table.list thead td.tbl_col_buttons {
+    padding-left: 12px;
+}
+table.list tfoot td {
+    background: linear-gradient(center top , #F7F7F7 0%, #EEEEEE 100%) repeat scroll 0 0 transparent;
+    background: -o-linear-gradient(center top , #F7F7F7 0%, #EEEEEE 100%) repeat scroll 0 0 transparent;
+    background: -moz-linear-gradient(center top , #F7F7F7 0%, #EEEEEE 100%) repeat scroll 0 0 transparent;
+    background: -webkit-gradient(linear , left top, left bottom, color-stop(0%,#F7F7F7), color-stop(100%,#EEEEEE));
+    background: -ms-linear-gradient(center top , #F7F7F7 0%, #EEEEEE 100%) repeat scroll 0 0 transparent;
+    border: 0;
+    border-top: 1px solid #D3D3D3; 
+    margin: 0 0 12px;
+    padding: 24px 8px 8px;
+    text-align: center;
+}
+table.list .tbl_row_uneven {
+    background: #D9ECF4;
+    border-top: 1px solid #BBD3DA;
+}
+table.list .tbl_row_even {
+    background: #FCFCFC;
+    border-top: 1px solid #BBD3DA;
+}
+
+table.additem {
+    background: none;
+}
+/* Forms/Input
+-------------------------------------------------------------- */
+textarea {
+    width: 400px;
+}
+input[type="text"],
+input[type="password"],
+textarea {
+    margin: 0; /* Safari by default adds a margin */
+    padding: 5px;
+    border: 1px solid #b2b2b2;
+    border-radius: 4px;
+    box-shadow: inset 0 0 2px 1px rgba(0,0,0, 0.1);
+    -moz-box-shadow: inset 0 0 2px 1px rgba(0,0,0, 0.1);
+    -webkit-box-shadow: inset 0 0 2px 1px rgba(0,0,0, 0.1);
+    -o-box-shadow: inset 0 0 2px 1px rgba(0,0,0, 0.1);
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input.button:focus,
+textarea:focus {
+    border-color: #4787b1;
+    box-shadow: 0 0 5px 2px rgba(71,135,177, 0.9);
+    -moz-box-shadow: 0 0 5px 2px rgba(71,135,177, 0.9);
+    -webkit-box-shadow: 0 0 5px 2px rgba(71,135,177, 0.9);
+    -o-box-shadow: 0 0 5px 2px rgba(71,135,177, 0.9);
+}
+input.placeholder,
+textarea.placeholder { color: #aaa; }
+
+input[type="checkbox"] {
+    margin: 6px 0;
+}
+input.search {
+    background: url("icons/x16/search.png") 5px 5px no-repeat #FFFFFF;
+    padding-left: 24px;
+}
+select {
+    margin: 0; /* Safari by default adds a margin */
+    padding: 3px;
+    border: 1px solid #b2b2b2;
+    border-radius: 4px;
+    box-shadow: inset 0 0 2px 1px rgba(0,0,0, 0.1);
+    -moz-box-shadow: inset 0 0 2px 1px rgba(0,0,0, 0.1);
+    -webkit-box-shadow: inset 0 0 2px 1px rgba(0,0,0, 0.1);
+    -o-box-shadow: inset 0 0 2px 1px rgba(0,0,0, 0.1);
+}
+select option {
+    padding: 2px;
+}
+select.clienticons option {
+    background-position: 5px 50%;
+    background-repeat: no-repeat;
+    padding: 1px 0 1px 30px;
+}
+select.clienticons option {
+    background-image: url("icons/x16/client.png");
+}
+select.servericons option {
+    background-position: 5px 50%;
+    background-repeat: no-repeat;
+    padding: 1px 0 1px 30px;
+}
+select.servericons option {
+    background-image: url("icons/x16/linux.png");
+}
+select.withicons option {
+    background-position: 5px 50%;
+    background-repeat: no-repeat;
+    padding: 1px 0 1px 30px;
+}
+select.withicons option[value="y"] {
+    background-image: url("icons/x16/tick_circle_frame.png");
+}
+select.withicons option[value="Y"] {
+    background-image: url("icons/x16/tick_circle_frame.png");
+}
+select.withicons option[value="n"] {
+    background-image: url("icons/x16/cross_circle_frame.png");
+}
+select.withicons option[value="N"] {
+    background-image: url("icons/x16/cross_circle_frame.png");
+}
+/* Input/buttons
+-------------------------------------------------------------- */
+input.button {
+    display: inline-block;
+    margin: 0 2px;
+    padding: 2px 5px;
+    color: #525252;
+    text-shadow: 0px 1px 1px #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    background: #f7f7f7;
+    background: -moz-linear-gradient(top, #f9f9f9 0%, #e6e6e6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#e6e6e6));
+    background: -o-linear-gradient(top, #f9f9f9 0%, #e6e6e6 100%);
+    background: -ms-linear-gradient(top, #f9f9f9 0%, #e6e6e6 100%);
+    background: linear-gradient(top, #f9f9f9 0%, #e6e6e6 100%);
+    box-shadow: 0 1px 1px 0 rgba(140, 140, 140, 0.3);
+    -o-box-shadow: 0 1px 1px 0 rgba(140, 140, 140, 0.3);
+    -webkit-box-shadow: 0 1px 1px 0 rgba(140, 140, 140, 0.3);
+    -moz-box-shadow: 0 1px 1px 0 rgba(140, 140, 140, 0.3);
+    text-decoration: none;
+    outline: none;
+}
+.formbuttons input.button {
+    color: #ddd;
+    font-size: 110%;
+    text-shadow: 0px 1px 1px #333;
+    padding: 4px 12px;
+    border-color: #465864;
+    border-radius: 5px;
+    background: #7a7b7d;
+    background: -moz-linear-gradient(top, #7b7b7b 0%, #606060 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7b7b7b), color-stop(100%,#606060)); /* Chrome,Safari4+ */
+    background: -o-linear-gradient(top, #7b7b7b 0%, #606060 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #7b7b7b 0%, #606060 100%); /* IE10+ */
+    background: linear-gradient(top, #7b7b7b 0%, #606060 100%); /* W3C */
+    box-shadow: 0 1px 1px 0 #ccc, inset 0 1px 0 0 #888;
+    -o-box-shadow: 0 1px 1px 0 #ccc, inset 0 1px 0 0 #888;
+    -webkit-box-shadow: 0 1px 1px 0 #ccc, inset 0 1px 0 0 #888;
+    -moz-box-shadow: 0 1px 1px 0 #ccc, inset 0 1px 0 0 #888;
+}
+.formbuttons input.button:hover,
+.formbuttons input.button:focus,
+input.button.mainaction:hover,
+input.button.mainaction:focus {
+    color: #f2f2f2;
+    border-color: #465864;
+    box-shadow: 0 0 5px 2px rgba(71,135,177, 0.6), inset 0 1px 0 0 #888;
+    -moz-box-shadow: 0 0 5px 2px rgba(71,135,177, 0.6), inset 0 1px 0 0 #888;
+    -webkit-box-shadow: 0 0 5px 2px rgba(71,135,177, 0.6), inset 0 1px 0 0 #888;
+    -o-box-shadow: 0 0 5px 2px rgba(71,135,177, 0.6), inset 0 1px 0 0 #888;
+}
+.formbuttons input.button:active {
+    color: #fff;
+    background: -moz-linear-gradient(top, #5c5c5c 0%, #7b7b7b 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5c5c5c), color-stop(100%,#7b7b7b));
+    background: -o-linear-gradient(top, #5c5c5c 0%, #7b7b7b 100%);
+    background: -ms-linear-gradient(top, #5c5c5c 0%, #7b7b7b 100%);
+    background: linear-gradient(top, #5c5c5c 0%, #7b7b7b 100%);
+}
+input.button.mainaction {
+    color: #ededed;
+    text-shadow: 0px 1px 1px #333;
+    border-color: #1f262c;
+    background: #505050;
+    background: -moz-linear-gradient(top, #505050 0%, #2a2e31 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#505050), color-stop(100%,#2a2e31));
+    background: -o-linear-gradient(top, #505050 0%, #2a2e31 100%);
+    background: -ms-linear-gradient(top, #505050 0%, #2a2e31 100%);
+    background: linear-gradient(top, #505050 0%, #2a2e31 100%);
+    box-shadow: inset 0 1px 0 0 #777;
+    -moz-box-shadow: inset 0 1px 0 0 #777;
+    -webkit-box-shadow: inset 0 1px 0 0 #777;
+    -o-box-shadow: inset 0 1px 0 0 #777;
+}
+input.button.mainaction:active {
+    color: #fff;
+    background: #515151;
+    background: -moz-linear-gradient(top, #2a2e31 0%, #505050 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2a2e31), color-stop(100%,#505050));
+    background: -o-linear-gradient(top, #2a2e31 0%, #505050 100%);
+    background: -ms-linear-gradient(top, #2a2e31 0%, #505050 100%);
+    background: linear-gradient(top, #2a2e31 0%, #505050 100%);
+}
+input.button[disabled],
+input.button[disabled]:hover,
+input.button.mainaction[disabled] {
+    color: #aaa !important;
+}
+input.mainaction { font-weight: bold; }
+
+/* link buttons
+-------------------------------------------------------------- */
+a.button,
+.button {
+    display: inline-block;
+    margin: 0 2px;
+    padding: 2px 5px;
+    color: #525252;
+    text-shadow: 0px 1px 1px #fff;
+    border: 1px solid #c6c6c6;
+    border-radius: 4px;
+    background: #f7f7f7;
+    background: -moz-linear-gradient(top, #f9f9f9 0%, #e6e6e6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#e6e6e6));
+    background: -o-linear-gradient(top, #f9f9f9 0%, #e6e6e6 100%);
+    background: -ms-linear-gradient(top, #f9f9f9 0%, #e6e6e6 100%);
+    background: linear-gradient(top, #f9f9f9 0%, #e6e6e6 100%);
+    box-shadow: 0 1px 1px 0 rgba(140, 140, 140, 0.3);
+    -o-box-shadow: 0 1px 1px 0 rgba(140, 140, 140, 0.3);
+    -webkit-box-shadow: 0 1px 1px 0 rgba(140, 140, 140, 0.3);
+    -moz-box-shadow: 0 1px 1px 0 rgba(140, 140, 140, 0.3);
+    text-decoration: none;
+}
+a.button:focus,
+input.button:focus {
+    border-color: #4fadd5;
+    box-shadow: 0 0 2px 1px rgba(71,135,177, 0.6);
+    -moz-box-shadow: 0 0 2px 1px rgba(71,135,177, 0.6);
+    -webkit-box-shadow: 0 0 2px 1px rgba(71,135,177, 0.6);
+    -o-box-shadow: 0 0 2px 1px rgba(71,135,177, 0.6);
+    outline: none;
+}
+label.disabled,
+a.button.disabled {
+    color: #999;
+}
+a.button.disabled,
+input.button.disabled,
+input.button[disabled],
+a.button.disabled:hover,
+input.button.disabled:hover,
+input.button[disabled]:hover {
+    border-color: #c6c6c6;
+    box-shadow: 0 1px 1px 0 rgba(160, 160, 160, 0.4);
+    -o-box-shadow: 0 1px 1px 0 rgba(160, 160, 160, 0.4);
+    -webkit-box-shadow: 0 1px 1px 0 rgba(160, 160, 160, 0.4);
+    -moz-box-shadow: 0 1px 1px 0 rgba(160, 160, 160, 0.4);
+}
+a.button.disabled span.inner {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+a.button.pressed,
+a.button:active,
+input.button:active {
+    background: #e6e6e6;
+    background: -moz-linear-gradient(top, #e6e6e6 0%, #f9f9f9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6e6e6), color-stop(100%,#f9f9f9));
+    background: -o-linear-gradient(top, #e6e6e6 0%, #f9f9f9 100%);
+    background: -ms-linear-gradient(top, #e6e6e6 0%, #f9f9f9 100%);
+    background: linear-gradient(top, #e6e6e6 0%, #f9f9f9 100%);
+}
+.pagenav.dark a.button {
+    font-weight: bold;
+    border-color: #e6e6e6;
+    background: #d8d8d8;
+    background: -moz-linear-gradient(top, #d8d8d8 0%, #bababa 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d8d8d8), color-stop(100%,#bababa));
+    background: -o-linear-gradient(top, #d8d8d8 0%, #bababa 100%);
+    background: -ms-linear-gradient(top, #d8d8d8 0%, #bababa 100%);
+    background: linear-gradient(top, #d8d8d8 0%, #bababa 100%);
+    box-shadow: 0 1px 1px 0 #999;
+    -o-box-shadow: 0 1px 1px 0 #999;
+    -webkit-box-shadow: 0 1px 1px 0 #999;
+    -moz-box-shadow: 0 1px 1px 0 #999;
+}
+.pagenav.dark a.button.pressed {
+    background: #bababa;
+    background: -moz-linear-gradient(top, #bababa 0%, #d8d8d8 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bababa), color-stop(100%,#d8d8d8));
+    background: -o-linear-gradient(top, #bababa 0%, #d8d8d8 100%);
+    background: -ms-linear-gradient(top, #bababa 0%, #d8d8d8 100%);
+    background: linear-gradient(top, #bababa 0%, #d8d8d8 100%);
+}
+.pagenav a.button {
+    padding: 1px 3px;
+    height: 16px;
+    vertical-align: middle;
+}
+.pagenav a.button span.inner {
+    display: inline-block;
+    width: 16px;
+    height: 13px;
+    text-indent: 1000px;
+    overflow: hidden;
+    background: url(images/buttons.png) -6px -211px no-repeat;
+}
+.pagenav a.prevpage span.inner {
+    background-position: -7px -226px;
+}
+.pagenav a.nextpage span.inner {
+    background-position: -28px -226px;
+}
+.pagenav a.lastpage span.inner {
+    background-position: -28px -211px;
+}
+.pagenav a.pageup span.inner {
+    background-position: -7px -241px;
+}
+.pagenav a.pagedown span.inner {
+    background-position: -29px -241px;
+}
+.pagenav a.reply span.inner {
+    background-position: -7px -256px;
+}
+.pagenav a.forward span.inner {
+    background-position: -29px -256px;
+}
+.pagenav a.replyall span.inner {
+    background-position: -7px -271px;
+}
+.pagenav a.extwin span.inner {
+    background-position: -29px -271px;
+}
+.pagenav .countdisplay {
+    display: inline-block;
+    padding:0 1em;
+    text-shadow: 0px 1px 1px #fff;
+    min-width: 16em;
+}
+.pagenavbuttons {
+    position: relative;
+    top: -2px;
+}
+a.iconbutton {
+    display: inline-block;
+    width: 24px;
+    height: 18px;
+    text-decoration: none;
+    text-indent: -1000px;
+    background: url(images/buttons.png) -1000px 0 no-repeat;
+}
+a.iconbutton.disabled {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    cursor: default;
+}
+a.iconbutton.searchoptions {
+    background-position: -2px -317px;
+}
+a.iconbutton.reset {
+    background-position: -25px -317px;
+}
+a.iconbutton.cancel {
+    background-position: -7px -377px;
+}
+a.iconlink {
+    display: inline-block;
+    color: #888;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 2px 8px 2px 20px;
+    background: url(images/buttons.png) -1000px 0 no-repeat;
+}
+a.iconlink:hover {
+    text-decoration: underline;
+}
+a.iconlink.delete {
+    background-position: -7px -337px;
+}
+a.iconlink.add {
+    background-position: -7px -357px;
+}
+a.iconlink.remove {
+    background-position: -7px -378px;
+}
+a.iconlink.cancel {
+    background-position: -7px -397px;
+}
+a.iconlink.edit {
+    background-position: -7px -417px;
+}
+a.iconlink.upload {
+    background-position: -6px -437px;
+}
+.ui-dialog.error .ui-dialog-title,
+.ui-dialog.warning .ui-dialog-title,
+.ui-dialog.confirmation .ui-dialog-title {
+    padding-left: 25px;
+    background: url(images/messages.png) 0 5px no-repeat;
+    text-shadow: 0 1px 1px #fff;
+}
+.ui-dialog.warning .ui-dialog-title {
+    color: #960;
+    background-position: 0 -90px;
+}
+.ui-dialog.error .ui-dialog-title {
+    color: #cf2734;
+    background-position: 0 -60px;
+}
+.ui-dialog.confirmation .ui-dialog-title {
+    color: #093;
+    background-position: 0 -30px;
+}
+.ui-dialog.popupmessage .ui-dialog-titlebar {
+    padding: 8px 1em 4px 1em;
+    background: #e3e3e3;
+    background: -moz-linear-gradient(top, #e3e3e3 0%, #cfcfcf 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e3e3e3), color-stop(100%,#cfcfcf));
+    background: -o-linear-gradient(top, #e3e3e3 0%, #cfcfcf 100%);
+    background: -ms-linear-gradient(top, #e3e3e3 0%, #cfcfcf 100%);
+    background: linear-gradient(top, #e3e3e3 0%, #cfcfcf 100%);
+}
+.ui-dialog.popupmessage .ui-widget-content {
+    font-size: 12px;
+    background: #eee;
+    background: -moz-linear-gradient(top, #eee 0%, #dcdcdc 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eee), color-stop(100%,#dcdcdc));
+    background: -o-linear-gradient(top, #eee 0%, #dcdcdc 100%);
+    background: -ms-linear-gradient(top, #eee 0%, #dcdcdc 100%);
+    background: linear-gradient(top, #eee 0%, #dcdcdc 100%);
+}
+
+/* layout/top
+-------------------------------------------------------------- */
+#top-line {
+    height: 18px;
+    background: url(images/bg_linen_dark.jpg) repeat #666;
+    border-bottom: 1px solid #4f4f4f;
+    padding: 2px 0 2px 10px;
+}
+#top-line a {
+    text-decoration: none;
+}
+#top-line a:hover { text-decoration: underline; }
+#toplogo { padding-top: 2px; }
+.topleft { float: left; }
+.topright { float: right; }
+#top-line span.username { padding-right: 1em; }
+#top-line .topleft a {
+    display: inline-block;
+    padding: 2px 0.8em 0 0;
+    color: #aaa;
+}
+#top-line a.button-logout {
+    display: inline-block;
+    padding: 2px 10px 2px 20px;
+    background: url(images/buttons.png) -6px -193px no-repeat;
+    color: #fff;
+}
+#middle-line {
+    height: 46px;
+    margin-bottom: 10px;
+    padding: 0 0 0 10px;
+    background: #111;
+    background: -moz-linear-gradient(top, #404040 0%, #060606 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#404040), color-stop(100%,#060606));
+    background: -o-linear-gradient(top, #404040 0%, #060606 100%);
+    background: -ms-linear-gradient(top, #404040 0%, #060606 100%);
+    background: linear-gradient(top, #404040 0%, #060606 100%);   
+}
+
+/* layout/top/topNav
+-------------------------------------------------------------- */
+#topNav a {
+    display: inline-block;
+    height: 34px;
+    padding: 12px 10px 0 6px;
+}
+#topNav a span.button-inner {
+    display: inline-block;
+    font-size: 110%;
+    font-weight: normal;
+    text-shadow: 0px 1px 1px black;
+    color: #eee;
+    text-decoration: none;
+    padding: 5px 0 0 34px;
+    height: 19px;
+    background-image: url("icons/x24_bw.png");
+    background-repeat: no-repeat;
+}
+#topNav a#topNav_current,
+#topNav a:hover {
+    color: #3cf;
+    background-color: #2c2c2c;
+}
+#topNav a.button- span.button-inner {
+    background-position: 3px 0px;
+}
+#topNav a.button-dashboard span.button-inner {
+    background-position: 3px -88px;
+}
+#topNav a.button-tools span.button-inner {
+    background-position: 3px -176px;
+}
+#topNav a.button-sites span.button-inner {
+    background-position: 3px -792px;
+}
+#topNav a.button-monitor span.button-inner {
+    background-position: 3px -968px;
+}
+#topNav a.button-help span.button-inner {
+    background-position: 3px -264px;
+}
+#topNav a.button-admin span.button-inner {
+    background-position: 3px -616px;
+}
+#topNav a.button-mail span.button-inner {
+    background-position: 3px -352px;
+}
+#topNav a.button-client span.button-inner {
+    background-position: 3px -440px;
+}
+#topNav a.button-domain span.button-inner {
+    background-position: 3px -528px;
+}
+#topNav a.button-dns span.button-inner {
+    background-position: 3px -704px;
+}
+#topNav a.button-vm span.button-inner {
+    background-position: 3px -880px;
+}
+#topNav a.button-billing span.button-inner {
+    background-position: 3px -1056px;
+}
+#topNav a#topNav_current span.button-inner,
+#topNav a.button-dashboard:hover span.button-inner,
+#topNav a.button-dashboard.button-selected span.button-inner {   
+}
+
+/* layout/left
+-------------------------------------------------------------- */
+#sideNav-container {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 42px;
+    width: 100%;
+}
+ul#submenu {
+    padding: 0;
+    margin: 0;
+}
+#submenu li a {
+    display: block;
+    color: #376572;
+    text-shadow: 0px 1px 1px #fff;
+    text-decoration: none;
+}
+.menu li a {
+    height: 17px;
+    padding-left: 35px;
+    white-space: nowrap;
+}
+.menu li select {
+    margin-left: 35px;
+}
+#submenu li.title a {
+    padding-left: 5px !important;
+    background: none;
+}
+#submenu li.title {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 8px 3px 8px;
+    height: 20px;  /* doesn't affect table-cells in FF */
+    margin: 0;
+    text-shadow: 0px 1px 1px #fff;
+    border: 0;
+    border-bottom: 1px solid #bbd3da;
+    border-radius: 4px 4px 0 0;
+    white-space: nowrap;
+    background: #b0ccd7;
+    color: #004458;
+}
+#submenu li {
+    display: block;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #bbd3da;
+    font-weight: normal;
+    display: block;
+    color: #376572;
+    text-shadow: 0px 1px 1px #fff;
+    text-decoration: none;
+    cursor: default;
+    padding: 6px 8px 5px 8px;
+    /* height: 17px; -- doesn't affect table-cells in FF */
+}
+.menu li { 
+    background-image: url("icons/icons_menu.png");
+    background-position: 12px 3px;
+    background-repeat: no-repeat;
+    white-space: nowrap;
+}
+.menu li:hover {
+/*    background-position: 12px -25px;*/
+}
+
+#select_server {
+    background: url("icons/x16/linux.png") no-repeat 15px 13px transparent;
+    white-space: nowrap;
+}
+.feed li a {
+    padding-left: 25px;
+    background: url("icons/x16/feed.png") no-repeat 0 5px transparent;
+}
+
+/* layout/right
+-------------------------------------------------------------- */
+#mainscreen {
+    position: absolute;
+    top: 88px;
+    left: 10px;
+    right: 10px;
+    bottom: 20px;
+}
+#mainscreen.offset {
+    top: 130px;
+}
+#mainscreen .offset {
+    margin-top: 42px;
+}
+#mainscreen-left {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 250px;
+}
+#mainscreen-right {
+    bottom: 0;
+    left: 264px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/* layout/right/footer
+-------------------------------------------------------------- */
+footer {
+    /*    height: 26px;
+        bottom: 0;
+        left: 264px;
+        right: 0;
+        top: 0; */
+}
+footer p {
+    margin: 5px 15px;
+}
+/* layout/right/footer/message bar
+-------------------------------------------------------------- */
+#message div.loading,
+#message div.warning,
+#message div.error,
+#message div.notice,
+#message div.confirmation,
+#message-objects div.notice {
+    color: #555;
+    font-weight: bold;
+    padding: 6px 30px 6px 25px;
+    display: inline-block;
+    white-space: nowrap;
+    background: url(images/messages.png) 0 5px no-repeat;
+    cursor: default;
+}
+#message div.warning {
+    color: #960;
+    background-position: 0 -86px;
+}
+#message div.error {
+    color: #cf2734;
+    background-position: 0 -55px;
+}
+#message div.confirmation {
+    color: #093;
+    background-position: 0 -25px;
+}
+#message div.loading {
+    background: url(images/ajaxloader.gif) 2px 6px no-repeat;
+}
+#message.statusbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: right;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    background: #eaeaea;
+    background: -moz-linear-gradient(top, #eaeaea 0%, #c8c8c8 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eaeaea), color-stop(100%,#c8c8c8));
+    background: -o-linear-gradient(top, #eaeaea 0%, #c8c8c8 100%);
+    background: -ms-linear-gradient(top, #eaeaea 0%, #c8c8c8 100%);
+    background: linear-gradient(top, #eaeaea 0%, #c8c8c8 100%);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* modules
+-------------------------------------------------------------- */
+#moduletoolbar {
+    height: 40px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: -6px;
+    white-space: nowrap;
+}
+#moduletoolbar a.button {
+    text-align: center;
+    font-size: 10px;
+    color: #555;
+    min-width: 50px;
+    max-width: 75px;
+    height: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 28px 2px 0 2px;
+    text-shadow: 0px 1px 1px #eee;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+    border: 0;
+    background-image: url("icons/x24_bw.png");
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+#moduletoolbar a.button.edit {
+    background-position: center -1188px;
+}
+#moduletoolbar a.button.cancel {
+    background-position: center -1276px;
+}
+#moduletoolbar a.button.import {
+    background-position: center -1364px;
+}
+#module-view {
+    bottom: 28px;
+    left: 0;
+    position: absolute;
+    top: 42px;
+    width: 100%;
+}
+#modulecontainer {
+    bottom: 32px;
+    overflow: auto;
+    top: 75px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    background: url("images/bg_module.png") repeat;
+}
+#module-title {
+    overflow: auto;
+    top: 42px;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 32px;
+    text-shadow: 0 1px 1px #FFFFFF;
+    white-space: nowrap;
+    z-index: 100;
+    background: none repeat scroll 0 0 #B0CCD7;
+    border-bottom: 1px solid #376572;
+    border: 1px solid #A3A3A3;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 0 2px #999999;
+}
+#module-title h1 {
+    padding: 10px 8px 3px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #376572;
+}
+.module-box {
+    border: 1px solid #a3a3a3;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 2px #999;
+    -o-box-shadow: 0 0 2px #999;
+    -webkit-box-shadow: 0 0 2px #999;
+    -moz-box-shadow: 0 0 2px #999;
+    background: #fff;
+}
+#module-desc {
+    margin: 15px;
+}
+.panel {
+    position: relative;
+    padding: 0 25px 35px 25px;
+}
+
+/* forms/fields
+-------------------------------------------------------------- */
+.ctrlHolder,
+.wf_oneField {
+/*    line-height: 30px;*/
+    margin: 10px 0;
+    border-bottom: 0px solid red;
+}
+.ctrlHolder label, 
+.wf_oneField label, 
+p.label {
+    float: left;
+    margin: 5px 15px 0 0;
+    text-align: right;
+    width: 250px;
+}
+p.value {
+    float:left;
+    margin: 5px 0;
+}
+p.prefix {
+    float: left;
+    margin: 5px 5px 0 0;
+    text-align: right;
+}
+.serverType label {
+    text-align: left;
+}
+.ctrlHolder select {
+    width: 300px;
+}
+label em,
+.label em {
+    color: #FF0000;
+    float: right;
+}
+.blockLabel {
+    float: left;
+    margin: 0 3% 0 0;
+    width: auto;
+}
+.blockLabel input {
+    float: left;
+}
+p.formHint,
+div.multiField {
+    margin: 0 0 0 265px;
+}
+label.inlineLabel {
+    float: none;
+    width: auto;
+    margin: 0;
+    text-align: left;
+}
+.multiField {
+    margin-left: 246px;
+}
+.multiField label {
+    margin: 0;
+    width: auto;
+}
+.multiField .blockLabel {
+    float: left;
+    margin: 0 3% 0 0;
+    width: 26%;
+}
+/* modules/tabsbar
+-------------------------------------------------------------- */
+#tabs {
+    position: relative;
+}
+
+ul.tabsbar {
+    margin: 0 0 10px 25px;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+.tabsbar li {
+    display: inline;
+    background: #EEEEEE;
+    border-radius: 0 0 5px 5px;
+}
+.tabsbar li.active {
+    background: red;
+
+}
+.tabsbar li a {
+    padding: 5px;
+    text-decoration: none;
+}
+.module-body {
+    padding: 15px;
+}
+
+/* modules/dashboard
+-------------------------------------------------------------- */
+h3.welcome {
+    font-size: 20px;
+    padding-left: 25px;
+}
+.systemmonitor-device {
+    background-position: -6px 5px;
+    background-repeat: no-repeat;
+    min-height: 80px;
+}
+.systemmonitor-state.state-no_state {
+    background-color: #F8F8FF;
+    border-top: 4px solid #95A19F;
+}
+.systemmonitor-state.state-unknown {
+    background-color: #CECFC5;
+    border-top: 4px solid #30302E;
+}
+.systemmonitor-state.state-ok {
+    background-color: #ADFFA2;
+    border-top: 4px solid #23FB00;
+}
+.systemmonitor-state.state-info {
+    background-color: #D4E2FF;
+    border-top: 4px solid #183E99;
+}
+.systemmonitor-state.state-warning {
+    background-color: #FFDA93;
+    border-top: 4px solid #FFA800;
+}
+.systemmonitor-state.state-critical {
+    background-color: #FFB9B9;
+    border-top: 4px solid #FF0000;
+}
+.systemmonitor-state.state-error {
+    background-color: #FF7F7F;
+    border-top: 4px solid #FF0000;
+}
+.systemmonitor-state.state-no_state-ve {
+    background-color: #F8F8FF;
+    border-top: 4px solid #95A19F;
+    float: left;
+    width: 213px;
+}
+.systemmonitor-state.state-unknown-ve {
+    background-color: #CECFC5;
+    border-top: 4px solid #30302E;
+    float: left;
+    width: 213px;
+}
+.systemmonitor-state.state-ok-ve {
+    background-color: #ADFFA2;
+    border-top: 4px solid #23FB00;
+    float: left;
+    width: 213px;
+}
+.systemmonitor-state.state-info-ve {
+    background-color: #D4E2FF;
+    border-top: 4px solid #183E99;
+    float: left;
+    width: 213px;
+}
+.systemmonitor-state.state-warning-ve {
+    background-color: #FFDA93;
+    border-top: 4px solid #FFA800;
+    float: left;
+    width: 213px;
+}
+.systemmonitor-state.state-critical-ve {
+    background-color: #FFB9B9;
+    border-top: 4px solid #FF0000;
+    float: left;
+    width: 213px;
+}
+.systemmonitor-state.state-error-ve {
+    background-color: #FF7F7F;
+    border-top: 4px solid #FF0000;
+    float: left;
+    width: 213px;
+}
+.systemmonitor-state {
+    overflow: hidden; 
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+}
+.systemmonitor-state:hover {
+    background-color: #FFFACD;
+}
+.systemmonitor-state p {
+    float:left;
+    margin-right: 5px;
+}
+.systemmonitor-device.device-server {
+    background-image: url("icons/x64/server.png");
+}
+.systemmonitor-device.device-system {
+    background-image: url("icons/x64/network.png");
+}
+.systemmonitor-content.icons32 {
+    background-position: 50px 5px;
+    background-repeat: no-repeat;
+    padding: 10px 10px 2px 90px;
+}
+.systemmonitor-content.icons32.ico-unknown {
+    background-image: url("icons/x32/state_unknown.png");
+}
+.systemmonitor-content.icons32.ico-ok {
+    background-image: url("icons/x32/state_ok.png");
+}
+.systemmonitor-content.icons32.ico-info {
+    background-image: url("icons/x32/state_info.png");
+}
+.systemmonitor-content.icons32.ico-warning {
+    background-image: url("icons/x32/state_warning.png");
+}
+.systemmonitor-content.icons32.ico-critical {
+    background-image: url("icons/x32/state_critical.png");
+}
+.systemmonitor-content.icons32.ico-error {
+    background-image: url("icons/x32/state_error.png");
+}
+div.state-info { background-color: #87D087; }
+div.state-warning { border-color: #FFFFE1; }
+div.state-error { border-color: #FF0000; }
+div.icon32 {
+    float: left;
+    margin: 2px 10px;
+    width: 32px;
+    height: 32px;
+}
+.state-info div.icon32 { background: url("icons/x32/info.png") no-repeat; }
+.state-warning div.icon32 { background: url("icons/x32/warning.png") no-repeat; }
+.state-error div.icon32 { background: url("icons/x32/error.png") no-repeat; }
+#dashlets {
+    float: left;
+}
+.dash-mods,
+.dash-limits {
+    float:left;
+    margin: 10px;
+    background: url("images/bg_paven.png") repeat #FFF;
+    border-top: 1px solid #D8D8D8;
+    border-right: 1px solid #6E6E6E;
+    border-bottom: 1px solid #6E6E6E;
+    border-left: 1px solid #D8D8D8;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px 4px #999;
+    -o-box-shadow: 2px 2px 4px 4px #999;
+    -webkit-box-shadow: 2px 2px 4px 4px #999;
+    -moz-box-shadow: 2px 2px 4px 4px #999;
+    -ms-box-shadow: 2px 2px 4px 4px #999;
+}
+.dash-mods {
+    width: 430px;
+    clear:left;
+}
+.dash-limits {
+    float: right;
+}
+.dash-mods h2,
+.dash-limits h2 {
+    background: #B0CCD7;
+    text-shadow: 0 1px 1px #FFFFFF;
+    color: #376572;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #A3A3A3;
+}
+.dash-limits table {
+    margin: 0;
+}
+.dashboard-modules {
+    background-image: url("icons/x24_bw.png");
+    background-color: #D9ECF4;
+    background-repeat: no-repeat;
+    border: 1px solid #BBD3DA;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 1px #BBD3DA;
+    -o-box-shadow: 1px 1px 1px 1px #BBD3DA;
+    -webkit-box-shadow: 1px 1px 1px 1px #BBD3DA;
+    -moz-box-shadow: 1px 1px 1px 1px #BBD3DA;
+    -ms-box-shadow: 1px 1px 1px 1px #BBD3DA;
+    float: left;
+    height: 60px;
+    margin: 10px;
+    width: 120px;
+}
+.dashboard-modules a {
+    border-top: 1px solid #D8D8D8;
+    border-right: 1px solid #9C9C9C;
+    border-bottom: 1px solid #9C9C9C;
+    border-left: 1px solid #D8D8D8;
+    display: block;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #376572;
+    height: 40px;
+    padding: 20px 0 0 35px;
+    text-decoration: none;
+    text-align: center;
+    width: 85px;
+}
+.dashboard-modules a:hover {
+    border-top: 1px solid #9C9C9C;
+    border-right: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
+    border-left: 1px solid #9C9C9C;
+    color: #000;
+}
+.dashboard-modules.admin { background-position: 10px -642px; }
+.dashboard-modules.vm { background-position: 10px -906px; }
+.dashboard-modules.client { background-position: 10px -466px; }
+.dashboard-modules.mail { background-position: 10px -378px; }
+.dashboard-modules.monitor { background-position: 10px -994px; }
+.dashboard-modules.dns { background-position: 10px -730px; }
+.dashboard-modules.tools { background-position: 10px -202px; }
+.dashboard-modules.help { background-position: 10px -290px; }
+.dashboard-modules.domain { background-position: 10px -554px; }
+.dashboard-modules.sites { background-position: 10px -818px; }
+.dashboard-modules.billing { background-position: 10px -1082px; }
+
+/* ??
+-------------------------------------------------------------- */
+.uibox {
+    border: 1px solid #a3a3a3;
+    border-radius: 4px;
+    box-shadow: 0 0 2px #999;
+    -o-box-shadow: 0 0 2px #999;
+    -webkit-box-shadow: 0 0 2px #999;
+    -moz-box-shadow: 0 0 2px #999;
+    background: #fff;
+}
+
+.scroller {
+    overflow: auto;
+}
+/* Lists
+-------------------------------------------------------------- */
+.listbox {
+    background: #d9ecf4;
+    overflow: hidden;
+}
+.listbox .scroller {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    overflow: auto;
+}
+.listbox .scroller.withfooter {
+    bottom: 42px;
+}
+.listbox .boxtitle + .scroller {
+    top: 34px;
+}
+.boxtitle,
+.uibox .listing thead td {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 8px 3px 8px;
+    height: 20px;  /* doesn't affect table-cells in FF */
+    margin: 0;
+    text-shadow: 0px 1px 1px #fff;
+    border-bottom: 1px solid #bbd3da;
+    white-space: nowrap;
+}
+.uibox .listing thead td {
+    padding-bottom: 8px;
+    height: auto;
+}
+.uibox .boxtitle,
+.uibox .listing thead td {
+    background: #b0ccd7;
+    color: #004458;
+    border-radius: 4px 4px 0 0;
+}
+.listbox .listitem,
+.listbox .tablink,
+.listing tbody td,
+.listing li {
+    display: block;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #bbd3da;
+    cursor: default;
+    font-weight: normal;
+}
+.listbox .listitem a,
+.listbox .tablink a,
+.listing tbody td,
+.listing li a {
+    display: block;
+    color: #376572;
+    text-shadow: 0px 1px 1px #fff;
+    text-decoration: none;
+    cursor: default;
+    padding: 6px 8px 5px 8px;
+    height: 17px; /* doesn't affect table-cells in FF */
+    white-space: nowrap;
+}
+.listing tbody td {
+    display: table-cell;
+    padding-bottom: 5px;
+    height: auto;
+    min-height: 14px;
+}
+.webkit .listing tbody td {
+    height: 14px;
+}
+.listbox .listitem.selected,
+.listbox .tablink.selected,
+.listbox .listitem.selected > a,
+.listbox .tablink.selected > a,
+.listing tbody tr.unfocused td,
+.listing tbody tr.selected td,
+.listing li.selected,
+.listing li.selected > a {
+    color: #004458;
+    font-weight: bold;
+}
+ul.listing {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul.listing li {
+    background-color: #d9ecf4;
+}
+ul.listing li.droptarget,
+table.listing tr.droptarget td {
+    background-color: #c7e3ef;
+}
+table.listing,
+table.layout {
+    border: 0;
+    width: 100%;
+    border-spacing: 0;
+}
+table.layout td {
+    vertical-align: top;
+}
+select.decorated {
+    cursor: pointer;
+    height: 22px;
+    opacity: 0;
+    position: relative;
+    z-index: 10;
+}
+.listbox .boxfooter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 42px;
+    border-top: 1px solid #ccdde4;
+    background: #d9ecf4;
+    -webkit-box-shadow: inset 0 1px 0 0 #fff;
+    -moz-box-shadow: inset 0 1px 0 0 #fff;
+    box-shadow: inset 0 1px 0 0 #fff;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.boxfooter .listbutton {
+    display: inline-block;
+    text-decoration: none;
+    width: 48px;
+    border-right: 1px solid #fff;
+    background: #c7e3ef;
+    padding: 3px 0;
+    margin-top: 1px;
+}
+.boxfooter .listbutton .inner {
+    display: inline-block;
+    width: 48px;
+    height: 35px;
+    text-indent: -1000px;
+    background: url(images/buttons.png) -1000px 0 no-repeat;
+}
+.boxfooter .listbutton.add .inner {
+    background-position: 10px -1301px;
+}
+.boxfooter .listbutton.delete .inner {
+    background-position: 10px -1342px;
+}
+.boxfooter .listbutton.groupactions .inner {
+    background-position: 5px -1382px;
+}
+.boxfooter .listbutton.addto .inner {
+    background-position: 5px -1422px;
+}
+.boxfooter .listbutton.addcc .inner {
+    background-position: 5px -1462px;
+}
+.boxfooter .listbutton.addbcc {
+    width: 54px;
+}
+.boxfooter .listbutton.addbcc .inner {
+    width: 54px;
+    background-position: 2px -1502px;
+}
+.boxfooter .listbutton.disabled .inner {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+.boxfooter .countdisplay {
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    color: #69929e;
+    padding: 3px 6px;
+}
+.boxpagenav {
+    position: absolute;
+    top: 10px;
+    right: 6px;
+    width: auto;
+}
+.boxpagenav a.icon {
+    display: inline-block;
+    padding: 1px 3px;
+    height: 13px;
+    width: 14px;
+    text-indent: 1000px;
+    vertical-align: bottom;
+    overflow: hidden;
+    background: url(images/buttons.png) -4px -286px no-repeat;
+}
+.boxpagenav a.icon.prevpage {
+    background-position: -4px -301px;
+}
+.boxpagenav a.icon.nextpage {
+    background-position: -28px -301px;
+}
+.boxpagenav a.icon.lastpage {
+    background-position: -28px -286px;
+}
+.boxpagenav a.icon.disabled {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+.centerbox {
+    width: 40em;
+    margin: 16px auto;
+}
+.boxcontent {
+    padding: 10px;
+}
+.contentbox .scroller {
+    position: absolute;
+    top: 34px;
+    left: 0;
+    right: 0;
+    bottom: 28px;
+    overflow: auto;
+}
+.footerleft {
+    padding: 0 12px;
+}
+.propform fieldset {
+    margin-bottom: 20px;
+    border: 0;
+    padding: 0;
+}
+.propform fieldset legend {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+.propform fieldset fieldset legend {
+    color: #666;
+    font-size: 12px;
+}
+fieldset.floating {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+table.propform {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+/* Login form
+-------------------------------------------------------------- */
+#login-form {
+    position: relative;
+    width: 580px;
+    margin: 20ex auto 2ex auto;
+}
+#login-form .box-inner {
+    width: 430px;
+    background: url(images/bg_linen_dark.jpg) top left repeat #5c5c5c;
+    margin: 0 50px;
+    padding: 10px 24px 24px 24px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    box-shadow: inset 0 0 1px #ccc;
+    -o-box-shadow: inset 0 0 1px #ccc;
+    -webkit-box-shadow: inset 0 0 1px #ccc;
+    -moz-box-shadow: inset 0 0 1px #ccc;
+}
+#login-form .box-bottom {
+    background: url(images/login_shadow.png) top center no-repeat;
+    margin-top: -3px;
+    padding-top: 10px;
+}
+#login-form td.input {
+    padding: 8px;
+}
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    width: 20em;
+    border-color: #666;
+}
+#login-form input.button {
+    color: #444;
+    text-shadow: 0px 1px 1px #fff;
+    border-color: #f9f9f9;
+    background: #f9f9f9;
+    background: -moz-linear-gradient(top, #f9f9f9 0%, #e2e2e2 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#e2e2e2));
+    background: -o-linear-gradient(top, #f9f9f9 0%, #e2e2e2 100%);
+    background: -ms-linear-gradient(top, #f9f9f9 0%, #e2e2e2 100%);
+    background: linear-gradient(top, #f9f9f9 0%, #e2e2e2 100%);
+    box-shadow: inset 0 1px 0 0 #fff;
+    -moz-box-shadow: inset 0 1px 0 0 #fff;
+    -webkit-box-shadow: inset 0 1px 0 0 #fff;
+    -o-box-shadow: inset 0 1px 0 0 #fff;
+}
+#login-form input.button:hover,
+#login-form input.button:focus {
+    box-shadow: 0 0 5px 2px rgba(71,135,177, 0.9), inset 0 1px 0 0 #fff;
+    -moz-box-shadow: 0 0 5px 2px rgba(71,135,177, 0.9), inset 0 1px 0 0 #fff;
+    -webkit-box-shadow: 0 0 5px 2px rgba(71,135,177, 0.9), inset 0 1px 0 0 #fff;
+    -o-box-shadow: 0 0 5px 2px rgba(71,135,177, 0.9), inset 0 1px 0 0 #fff;
+}
+#login-form input.button:active {
+    color: #333;
+    background: -moz-linear-gradient(top, #dcdcdc 0%, #f9f9f9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dcdcdc), color-stop(100%,#f9f9f9));
+    background: -o-linear-gradient(top, #dcdcdc 0%, #f9f9f9 100%);
+    background: -ms-linear-gradient(top, #dcdcdc 0%, #f9f9f9 100%);
+    background: linear-gradient(top, #dcdcdc 0%, #f9f9f9 100%);
+}
+#login-form td.title {
+    color: #cecece;
+    text-shadow: 0px 1px 1px black;
+    text-align: right;
+    padding-right: 1em;
+}
+#login-form p.formbuttons {
+    margin-top: 2em;
+    text-align: center;
+}
+#login-form #logo {
+    margin: 20px 0;
+}
+#login-form #message {
+    min-height: 40px;
+    padding: 5px 25px;
+}
+#login-form #message h1 {
+    display: none;
+}
+#login-form #message p,
+#login-form #message div {
+    text-align: center;
+    margin: 0 auto;
+}
+#login footer {
+    font-size: 90%;
+    text-align: center;
+    margin-top: 2em;
+}
+#login footer p {
+    text-align: center;
+}
+#login-form .ctrlHolder {
+    line-height: 45px;
+}
+#login-form label span {
+    color: #FF0000;
+}
+#login-form .ctrlHolder label {
+    width: 100px;
+    color: #CECECE;
+    text-align: right;
+    text-shadow: 0 1px 1px black;
+}
+#login-form .buttonHolder {
+    height: 30px;
+    margin: 0;
+    float: right;
+}
+#login-form #errorMsg {  
+}
+
+/*** toolbar ***/
+.toolbar a.button.disabled {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+.dropbutton {
+    display: inline-block;
+    position: relative;
+}
+.dropbutton .dropbuttontip {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 42px;
+    width: 18px;
+    background: url(images/buttons.png) 0 -1255px no-repeat;
+    cursor: pointer;
+}
+.dropbutton .dropbuttontip:hover {
+    background-position: -26px -1255px;
+}
+.dropbutton a.button.disabled + .dropbuttontip {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+.dropbutton a.button.disabled + .dropbuttontip:hover {
+    background-position: 0 -1255px;
+}
+.dropbutton a.button {
+    margin-left: 0;
+    padding-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+.toolbar a.button.back {
+    background-position: 0 -1216px;
+}
+.toolbar a.button.compose {
+    background-position: center -530px;
+}
+.toolbar a.button.reply {
+    background-position: center -570px;
+}
+.toolbar a.button.reply-all {
+    min-width: 64px;
+    background-position: left -610px;
+}
+.toolbar a.button.forward {
+    min-width: 64px;
+    background-position: left -650px;
+}
+.toolbar a.button.delete {
+    background-position: center -690px;
+}
+.toolbar a.button.archive {
+    background-position: center -730px;
+}
+.toolbar a.button.junk {
+    background-position: center -770px;
+}
+.toolbar a.button.print {
+    background-position: center -810px;
+}
+.toolbar a.button.markmessage {
+    background-position: center -1094px;
+}
+.toolbar a.button.more {
+    background-position: center -850px;
+}
+.toolbar a.button.attach {
+    background-position: center -890px;
+}
+.toolbar a.button.spellcheck {
+    background-position: center -930px;
+}
+.toolbar a.button.insertsig {
+    background-position: center -1135px;
+}
+.toolbar a.button.search {
+    background-position: center -970px;
+}
+.toolbar a.button.import {
+    background-position: center -1012px;
+}
+.toolbar a.button.export {
+    background-position: center -1054px;
+}
+a.menuselector {
+    display: inline-block;
+    border: 1px solid #ababab;
+    border-radius: 4px;
+    background: #f8f8f8;
+    background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));
+    background: -o-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -ms-linear-gradient(top, #f9f9f9 0%, #dddddd 100%);
+    background: linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    text-decoration: none;
+    color: #333;
+}
+a.menuselector .handle {
+    display: inline-block;
+    padding: 3px 32px 0 8px;
+    min-height: 18px;
+    text-shadow: 0px 1px 1px #fff;
+    background: url(images/selector.png) right center no-repeat;
+    border-radius: 4px;
+}
+a.menuselector:active {
+    background: #dddddd;
+    background: -moz-linear-gradient(top, #dddddd 0%, #f8f8f8 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dddddd), color-stop(100%,#f8f8f8));
+    background: -o-linear-gradient(top, #dddddd 0%, #f8f8f8 100%);
+    background: -ms-linear-gradient(top, #dddddd 0%, #f8f8f8 100%);
+    background: linear-gradient(top, #dddddd 0%, #f8f8f8 100%);
+    text-decoration: none;
+}
+a.dropdownselector {
+    position: absolute;
+    z-index: 1;
+}
+select.decorated {
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    height: 22px;
+    cursor: pointer;
+    filter: alpha(opacity=0);
+    -khtml-appearance: none;
+    -webkit-appearance: none;
+}
+html.opera select.decorated {
+    opacity: 1;
+    height: auto;
+}
+select.decorated option {
+    color: #fff;
+    background: #444;
+    border: 0;
+    border-top: 1px solid #5a5a5a;
+    border-bottom: 1px solid #333;
+    text-shadow: 0px 1px 1px #333;
+    padding: 6px 10px;
+    outline: none;
+}
+
+/*** popup menus ***/
+.popupmenu,
+#rcmKSearchpane {
+    display: none;
+    position: absolute;
+    top: 32px;
+    left: 90px;
+    width: auto;
+    background: #444;
+    border: 1px solid #999;
+    z-index: 240;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px 0 #333;
+    -moz-box-shadow: 0 2px 6px 0 #333;
+    -webkit-box-shadow: 0 2px 6px 0 #333;
+    -o-box-shadow: 0 2px 6px 0 #333;
+}
+.popupmenu.dropdown {
+    border-radius: 0 0 4px 4px;
+    border-top: 0;
+}
+ul.toolbarmenu,
+#rcmKSearchpane ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.googie_list td,
+ul.toolbarmenu li,
+#rcmKSearchpane ul li {
+    color: #fff;
+    white-space: nowrap;
+    min-width: 130px;
+    margin: 0;
+    border-top: 1px solid #5a5a5a;
+    border-bottom: 1px solid #333;
+}
+.googie_list tr:first-child td,
+ul.toolbarmenu li:first-child,
+select.decorated option:first-child {
+    border-top: 0;
+}
+.googie_list tr:last-child td,
+ul.toolbarmenu li:last-child,
+select.decorated option:last-child {
+    border-bottom: 0;
+}
+.googie_list td span,
+ul.toolbarmenu li a {
+    display: block;
+    color: #666;
+    text-shadow: 0px 1px 1px #333;
+    text-decoration: none;
+    min-height: 14px;
+    padding: 6px 10px 6px 10px;
+}
+.googie_list td span {
+    padding: 3px 10px;
+}
+.googie_list td span,
+ul.toolbarmenu li a.active {
+    color: #fff;
+    cursor: default;
+}
+.googie_list td.googie_list_onhover,
+ul.toolbarmenu li a.active:hover,
+#rcmKSearchpane ul li.selected,
+select.decorated option:hover,
+select.decorated option[selected='selected'] {
+    background-color: #00aad6;
+    background: -moz-linear-gradient(top, #00aad6 0%, #008fc9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00aad6), color-stop(100%,#008fc9));
+    background: -o-linear-gradient(top, #00aad6 0%, #008fc9 100%);
+    background: -ms-linear-gradient(top, #00aad6 0%, #008fc9 100%);
+    background: linear-gradient(top, #00aad6 0%, #008fc9 100%);
+}
+ul.toolbarmenu.iconized li a {
+    padding-left: 30px;
+}
+ul.toolbarmenu li label {
+    display: block;
+    color: #fff;
+    padding: 4px 8px;
+    text-shadow: 0px 1px 1px #333;
+}
+ul.toolbarmenu li a.icon {
+    color: #eee;
+    padding: 2px 6px;
+}
+ul.toolbarmenu li span.icon {
+    display: block;
+    min-height: 14px;
+    padding: 4px 4px 1px 24px;
+    height: 17px;
+    background-image: url(images/listicons.png);
+    background-position: -100px 0;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+ul.toolbarmenu li a.active span.icon {
+    opacity: 0.99;
+    filter: alpha(opacity=100);
+}
+ul.toolbarmenu li span.read {
+    background-position: 0 -1220px;
+}
+ul.toolbarmenu li span.unread {
+    background-position: 0 -1196px;
+}
+ul.toolbarmenu li span.flagged {
+    background-position: 0 -1244px;
+}
+ul.toolbarmenu li span.unflagged {
+    background-position: 0 -1268px;
+}
+ul.toolbarmenu li span.mail {
+    background-position: 0 -1293px;
+}
+ul.toolbarmenu li span.list {
+    background-position: 0 -1317px;
+}
+ul.toolbarmenu li span.invert {
+    background-position: 0 -1340px;
+}
+ul.toolbarmenu li span.cross {
+    background-position: 0 -1365px;
+}
+ul.toolbarmenu li span.print {
+    background-position: 0 -1436px;
+}
+ul.toolbarmenu li span.download {
+    background-position: 0 -1412px;
+}
+ul.toolbarmenu li span.edit {
+    background-position: 0 -1388px;
+}
+ul.toolbarmenu li span.viewsource {
+    background-position: 0 -1460px;
+}
+ul.toolbarmenu li span.extwin {
+    background-position: 0 -1484px;
+}
+ul.toolbarmenu li span.conversation {
+    background-position: 0 -1532px;
+}
+#rcmKSearchpane {
+    border-radius: 0 0 4px 4px;
+    border-top: 0;
+}
+#rcmKSearchpane ul li {
+    text-shadow: 0px 1px 1px #333;
+    text-decoration: none;
+    min-height: 14px;
+    padding: 6px 10px 6px 10px;
+    border: 0;
+}
+.popupdialog {
+    display: none;
+    padding: 10px;
+}
+.popupdialog .formbuttons {
+    margin: 20px 0 4px 0;
+}
+.ui-dialog .prompt input {
+    display: block;
+    margin: 8px 0;
+}
+.hint {
+    margin: 4px 0;
+    color: #999;
+    text-shadow: 0px 1px 1px #fff;
+}
+/* Splitter
+-------------------------------------------------------------- */
+.splitter {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    position: absolute;
+    background: url(images/splitter.png) center no-repeat;
+}
+
+.splitter-h {
+    height: 10px;
+    width: 100%;
+    background-position: center 0;
+}
+
+.splitter-v {
+    width: 10px;
+    left: 253px; 
+    top: 0px;
+    height: 100%;
+    background-position: 0 center;
+}
+
+/* buttons
+-------------------------------------------------------------- */
+.buttonHolder,
+.wf_actions {
+    margin: 25px 0 0 150px;
+    height: 60px;
+}
+.buttons button[type] {
+    line-height: 17px;
+    padding: 5px 10px 5px 7px;
+}
+.buttons button {
+    overflow: visible;
+    padding: 4px 10px 3px 7px;
+    width: auto;
+}
+.button,
+a.button,
+.buttons button {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F5F5F5;
+    border-color: #C8C8C8 #777777 #777777 #C8C8C8;
+    border-right: 1px solid #777777;
+    border-style: solid;
+    border-width: 1px;
+    color: #565656;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-family: "Lucida Grande",Tahoma,Arial,Verdana,sans-serif;
+    font-size: 90%;
+    font-weight: bold;
+    margin: 0 7px 0 0;
+    padding: 5px 10px 6px 7px;
+    text-decoration: none;
+}
+.iconstxt {
+    background-position: 4px center;
+    background-repeat: no-repeat;
+}
+.iconstxt span {
+    padding-left: 20px;
+}
+.iconstxt.icoPositive {
+    background-image: url("icons/x16/tick_circle_frame.png");
+}
+.iconstxt.icoNegative {
+    background-image: url("icons/x16/cross_circle_frame.png");
+}
+.iconstxt.icoAdd {
+    background-image: url("icons/x16/plus_circle_frame.png");
+}
+.iconstxt.icoKey {
+    background-image: url("icons/x16/key.png");
+}
+.iconstxt.icoDelete {
+    background-image: url("icons/x16/minus_circle_frame.png");
+}
+.buttons a.negative, button.negative {
+    color: #D12F19;
+}
+
+.buttons a.positive, button.positive {
+    color: #529214;
+}
+#ir-Yes {
+    background-image: url("icons/x16/tick_circle.png");
+    height: 16px;
+}
+#ir-No {
+    background-image: url("icons/x16/cross_circle.png");
+    height: 16px;
+}
+.swap {
+    background-repeat: no-repeat;
+}
+.swap span {
+    display: none;
+    height: 16px;
+}
+.icons16 span {
+    display: none;
+}
+a.icons16 {
+    background-position: 1px 1px;
+    background-repeat: no-repeat;
+    height: 18px;
+    padding: 0;
+    width: 18px;
+}
+button.icons16 {
+    background-position: 1px 1px;
+    background-repeat: no-repeat;
+    height: 20px;
+    padding: 0;
+    width: 20px;
+}
+.icons16.icoDelete {
+    background-image: url("icons/x16/minus_circle_frame.png");
+}
+.icons16.icoFilter {
+    background-image: url("icons/x16/funnel.png");
+}
+.icons16.icoEdit {
+    background-image: url("icons/x16/wrench.png");
+}
+.icons16.icoDbAdmin {
+    background-image: url("icons/x16/database.png");
+}
+.icons16.icoLoginAs {
+    background-image: url("icons/x16/user_go.png");
+}
+.icons16.icoWebmailer {
+    background-image: url("icons/x16/mails_arrow.png");
+}
+
+/* 
+-------------------------------------------------------------- */
+
+#language.selectInput {
+    width: 75px;
+}
+
+select.flags option {
+    background-image: url("icons/flags_sprite.png");
+    background-repeat: no-repeat;
+    padding: 1px 0 1px 30px;
+}
+
+select.flags option[value=EL] {background-position:0 -1475px}
+select.flags option[value=AD], select.flags option[value=ad] {background-position:0 -1px}
+select.flags option[value=AE], select.flags option[value=ae] {background-position:0 -23px}
+select.flags option[value=AF], select.flags option[value=af] {background-position:0 -45px}
+select.flags option[value=AG], select.flags option[value=ag] {background-position:0 -67px}
+select.flags option[value=AI], select.flags option[value=ai] {background-position:0 -89px}
+select.flags option[value=AL], select.flags option[value=al] {background-position:0 -111px}
+select.flags option[value=AM], select.flags option[value=am] {background-position:0 -133px}
+select.flags option[value=AN], select.flags option[value=an] {background-position:0 -155px}
+select.flags option[value=AO], select.flags option[value=ao] {background-position:0 -177px}
+select.flags option[value=AQ], select.flags option[value=aq] {background-position:0 -199px}
+select.flags option[value=AR], select.flags option[value=ar] {background-position:0 -221px}
+select.flags option[value=AS], select.flags option[value=as] {background-position:0 -243px}
+select.flags option[value=AT], select.flags option[value=at] {background-position:0 -265px}
+select.flags option[value=AU], select.flags option[value=au] {background-position:0 -287px}
+select.flags option[value=AW], select.flags option[value=aw] {background-position:0 -309px}
+select.flags option[value=AX], select.flags option[value=ax] {background-position:0 -331px}
+select.flags option[value=AZ], select.flags option[value=az] {background-position:0 -353px}
+select.flags option[value=BA], select.flags option[value=ba] {background-position:0 -375px}
+select.flags option[value=BB], select.flags option[value=bb] {background-position:0 -397px}
+select.flags option[value=BD], select.flags option[value=bd] {background-position:0 -419px}
+select.flags option[value=BE], select.flags option[value=be] {background-position:0 -441px}
+select.flags option[value=BF], select.flags option[value=bf] {background-position:0 -463px}
+select.flags option[value=BG], select.flags option[value=bg] {background-position:0 -485px}
+select.flags option[value=BH], select.flags option[value=bh] {background-position:0 -507px}
+select.flags option[value=BI], select.flags option[value=bi] {background-position:0 -529px}
+select.flags option[value=BJ], select.flags option[value=bj] {background-position:0 -551px}
+select.flags option[value=BM], select.flags option[value=bm] {background-position:0 -573px}
+select.flags option[value=BN], select.flags option[value=bn] {background-position:0 -595px}
+select.flags option[value=BO], select.flags option[value=bo] {background-position:0 -617px}
+select.flags option[value=BR], select.flags option[value=br] {background-position:0 -639px}
+select.flags option[value=BS], select.flags option[value=bs] {background-position:0 -661px}
+select.flags option[value=BT], select.flags option[value=bt] {background-position:0 -683px}
+select.flags option[value=BV], select.flags option[value=bv] {background-position:0 -705px}
+select.flags option[value=BW], select.flags option[value=bw] {background-position:0 -727px}
+select.flags option[value=BY], select.flags option[value=by] {background-position:0 -749px}
+select.flags option[value=BZ], select.flags option[value=bz] {background-position:0 -771px}
+select.flags option[value=CA], select.flags option[value=ca] {background-position:0 -793px}
+select.flags option[value=CC], select.flags option[value=cc] {background-position:0 -837px}
+select.flags option[value=CD], select.flags option[value=cd] {background-position:0 -859px}
+select.flags option[value=CF], select.flags option[value=cf] {background-position:0 -881px}
+select.flags option[value=CG], select.flags option[value=cg] {background-position:0 -903px}
+select.flags option[value=CH], select.flags option[value=ch] {background-position:0 -925px}
+select.flags option[value=CI], select.flags option[value=ci] {background-position:0 -947px}
+select.flags option[value=CK], select.flags option[value=ck] {background-position:0 -969px}
+select.flags option[value=CL], select.flags option[value=cl] {background-position:0 -991px}
+select.flags option[value=CM], select.flags option[value=cm] {background-position:0 -1013px}
+select.flags option[value=CN], select.flags option[value=cn] {background-position:0 -1035px}
+select.flags option[value=CO], select.flags option[value=co] {background-position:0 -1057px}
+select.flags option[value=CR], select.flags option[value=cr] {background-position:0 -1079px}
+select.flags option[value=CS], select.flags option[value=cs] {background-position:0 -1101px}
+select.flags option[value=CU], select.flags option[value=cu] {background-position:0 -1123px}
+select.flags option[value=CV], select.flags option[value=cv] {background-position:0 -1145px}
+select.flags option[value=CX], select.flags option[value=cx] {background-position:0 -1167px}
+select.flags option[value=CY], select.flags option[value=cy] {background-position:0 -1189px}
+select.flags option[value=CZ], select.flags option[value=cz] {background-position:0 -1211px}
+select.flags option[value=DE], select.flags option[value=de] {background-position:0 -1233px}
+select.flags option[value=DJ], select.flags option[value=dj] {background-position:0 -1255px}
+select.flags option[value=DK], select.flags option[value=dk] {background-position:0 -1277px}
+select.flags option[value=DM], select.flags option[value=dm] {background-position:0 -1299px}
+select.flags option[value=DO], select.flags option[value=do] {background-position:0 -1321px}
+select.flags option[value=DZ], select.flags option[value=dz] {background-position:0 -1343px}
+select.flags option[value=EC], select.flags option[value=ec] {background-position:0 -1365px}
+select.flags option[value=EE], select.flags option[value=ee] {background-position:0 -1387px}
+select.flags option[value=EG], select.flags option[value=eg] {background-position:0 -1409px}
+select.flags option[value=EH], select.flags option[value=eh] {background-position:0 -1431px}
+select.flags option[value=ER], select.flags option[value=er] {background-position:0 -1497px}
+select.flags option[value=ES], select.flags option[value=ET], select.flags option[value=es], select.flags option[value=et] {background-position:0 -1519px}
+select.flags option[value=FI], select.flags option[value=fi] {background-position:0 -1585px}
+select.flags option[value=FJ], select.flags option[value=fj] {background-position:0 -1607px}
+select.flags option[value=FK], select.flags option[value=fk] {background-position:0 -1629px}
+select.flags option[value=FM], select.flags option[value=fm] {background-position:0 -1651px}
+select.flags option[value=FO], select.flags option[value=fo] {background-position:0 -1673px}
+select.flags option[value=FR], select.flags option[value=fr] {background-position:0 -1695px}
+select.flags option[value=GA], select.flags option[value=ga] {background-position:0 -1717px}
+select.flags option[value=GB], select.flags option[value=en], select.flags option[value=gb] {background-position:0 -1739px}
+select.flags option[value=GD], select.flags option[value=gd] {background-position:0 -1761px}
+select.flags option[value=GE], select.flags option[value=ge] {background-position:0 -1783px}
+select.flags option[value=GF], select.flags option[value=gf] {background-position:0 -1805px}
+select.flags option[value=GH], select.flags option[value=gh] {background-position:0 -1827px}
+select.flags option[value=GI], select.flags option[value=gi] {background-position:0 -1849px}
+select.flags option[value=GL], select.flags option[value=gl] {background-position:0 -1871px}
+select.flags option[value=GM], select.flags option[value=gm] {background-position:0 -1893px}
+select.flags option[value=GN], select.flags option[value=gn] {background-position:0 -1915px}
+select.flags option[value=GP], select.flags option[value=gp] {background-position:0 -1937px}
+select.flags option[value=GQ], select.flags option[value=gq] {background-position:0 -1959px}
+select.flags option[value=GR], select.flags option[value=el], select.flags option[value=gr] {background-position:0 -1981px}
+select.flags option[value=GS], select.flags option[value=gs] {background-position:0 -2003px}
+select.flags option[value=GT], select.flags option[value=gt] {background-position:0 -2025px}
+select.flags option[value=GU], select.flags option[value=gu] {background-position:0 -2047px}
+select.flags option[value=GW], select.flags option[value=gw] {background-position:0 -2069px}
+select.flags option[value=GY], select.flags option[value=gy] {background-position:0 -2091px}
+select.flags option[value=HK], select.flags option[value=hk] {background-position:0 -2113px}
+select.flags option[value=HM], select.flags option[value=hm] {background-position:0 -2135px}
+select.flags option[value=HN], select.flags option[value=hn] {background-position:0 -2157px}
+select.flags option[value=HR], select.flags option[value=hr] {background-position:0 -2179px}
+select.flags option[value=HT], select.flags option[value=ht] {background-position:0 -2201px}
+select.flags option[value=HU], select.flags option[value=hu] {background-position:0 -2223px}
+select.flags option[value=ID], select.flags option[value=id] {background-position:0 -2245px}
+select.flags option[value=IE], select.flags option[value=ie] {background-position:0 -2267px}
+select.flags option[value=IL], select.flags option[value=il] {background-position:0 -2289px}
+select.flags option[value=IN], select.flags option[value=in] {background-position:0 -2311px}
+select.flags option[value=IO], select.flags option[value=io] {background-position:0 -2333px}
+select.flags option[value=IQ], select.flags option[value=iq] {background-position:0 -2355px}
+select.flags option[value=IR], select.flags option[value=ir] {background-position:0 -2377px}
+select.flags option[value=IS], select.flags option[value=is] {background-position:0 -2399px}
+select.flags option[value=IT], select.flags option[value=it] {background-position:0 -2421px}
+select.flags option[value=JM], select.flags option[value=jm] {background-position:0 -2443px}
+select.flags option[value=JO], select.flags option[value=jo] {background-position:0 -2465px}
+select.flags option[value=JP], select.flags option[value=ja], select.flags option[value=jp] {background-position:0 -2487px}
+select.flags option[value=KE], select.flags option[value=ke] {background-position:0 -2509px}
+select.flags option[value=KG], select.flags option[value=kg] {background-position:0 -2531px}
+select.flags option[value=KH], select.flags option[value=kh] {background-position:0 -2553px}
+select.flags option[value=KI], select.flags option[value=ki] {background-position:0 -2575px}
+select.flags option[value=KM], select.flags option[value=km] {background-position:0 -2597px}
+select.flags option[value=KN], select.flags option[value=kn] {background-position:0 -2619px}
+select.flags option[value=KP], select.flags option[value=kp] {background-position:0 -2641px}
+select.flags option[value=KR], select.flags option[value=kr] {background-position:0 -2663px}
+select.flags option[value=KW], select.flags option[value=kw] {background-position:0 -2685px}
+select.flags option[value=KY], select.flags option[value=ky] {background-position:0 -2707px}
+select.flags option[value=KZ], select.flags option[value=kz] {background-position:0 -2729px}
+select.flags option[value=LA], select.flags option[value=la] {background-position:0 -2751px}
+select.flags option[value=LB], select.flags option[value=lb] {background-position:0 -2773px}
+select.flags option[value=LC], select.flags option[value=lc] {background-position:0 -2795px}
+select.flags option[value=LI], select.flags option[value=li] {background-position:0 -2817px}
+select.flags option[value=LK], select.flags option[value=lk] {background-position:0 -2839px}
+select.flags option[value=LR], select.flags option[value=lr] {background-position:0 -2861px}
+select.flags option[value=LS], select.flags option[value=ls] {background-position:0 -2883px}
+select.flags option[value=LT], select.flags option[value=lt] {background-position:0 -2905px}
+select.flags option[value=LU], select.flags option[value=lu] {background-position:0 -2927px}
+select.flags option[value=LV], select.flags option[value=lv] {background-position:0 -2949px}
+select.flags option[value=LY], select.flags option[value=ly] {background-position:0 -2971px}
+select.flags option[value=MA], select.flags option[value=ma] {background-position:0 -2993px}
+select.flags option[value=MC], select.flags option[value=mc] {background-position:0 -3015px}
+select.flags option[value=MD], select.flags option[value=md] {background-position:0 -3037px}
+select.flags option[value=ME], select.flags option[value=me] {background-position:0 -3059px}
+select.flags option[value=MG], select.flags option[value=mg] {background-position:0 -3081px}
+select.flags option[value=MH], select.flags option[value=mh] {background-position:0 -3103px}
+select.flags option[value=MK], select.flags option[value=mk] {background-position:0 -3125px}
+select.flags option[value=ML], select.flags option[value=ml] {background-position:0 -3147px}
+select.flags option[value=MM], select.flags option[value=mm] {background-position:0 -3169px}
+select.flags option[value=MN], select.flags option[value=mn] {background-position:0 -3191px}
+select.flags option[value=MO], select.flags option[value=mo] {background-position:0 -3213px}
+select.flags option[value=MP], select.flags option[value=mp] {background-position:0 -3235px}
+select.flags option[value=MQ], select.flags option[value=mq] {background-position:0 -3257px}
+select.flags option[value=MR], select.flags option[value=mr] {background-position:0 -3279px}
+select.flags option[value=MS], select.flags option[value=ms] {background-position:0 -3301px}
+select.flags option[value=MT], select.flags option[value=mt] {background-position:0 -3323px}
+select.flags option[value=MU], select.flags option[value=mu] {background-position:0 -3345px}
+select.flags option[value=MV], select.flags option[value=mv] {background-position:0 -3367px}
+select.flags option[value=MW], select.flags option[value=mw] {background-position:0 -3389px}
+select.flags option[value=MX], select.flags option[value=mx] {background-position:0 -3411px}
+select.flags option[value=MY], select.flags option[value=my] {background-position:0 -3433px}
+select.flags option[value=MZ], select.flags option[value=mz] {background-position:0 -3455px}
+select.flags option[value=NA], select.flags option[value=na] {background-position:0 -3477px}
+select.flags option[value=NC], select.flags option[value=nc] {background-position:0 -3499px}
+select.flags option[value=NE], select.flags option[value=ne] {background-position:0 -3521px}
+select.flags option[value=NF], select.flags option[value=nf] {background-position:0 -3543px}
+select.flags option[value=NG], select.flags option[value=ng] {background-position:0 -3565px}
+select.flags option[value=NI], select.flags option[value=ni] {background-position:0 -3587px}
+select.flags option[value=NL], select.flags option[value=nl] {background-position:0 -3609px}
+select.flags option[value=NO], select.flags option[value=no] {background-position:0 -3631px}
+select.flags option[value=NP], select.flags option[value=np] {background-position:0 -3653px}
+select.flags option[value=NR], select.flags option[value=nr] {background-position:0 -3675px}
+select.flags option[value=NU], select.flags option[value=nu] {background-position:0 -3697px}
+select.flags option[value=NZ], select.flags option[value=nz] {background-position:0 -3719px}
+select.flags option[value=OM], select.flags option[value=om] {background-position:0 -3741px}
+select.flags option[value=PA], select.flags option[value=pa] {background-position:0 -3763px}
+select.flags option[value=PE], select.flags option[value=pe] {background-position:0 -3785px}
+select.flags option[value=PF], select.flags option[value=pf] {background-position:0 -3807px}
+select.flags option[value=PG], select.flags option[value=pg] {background-position:0 -3829px}
+select.flags option[value=PH], select.flags option[value=ph] {background-position:0 -3851px}
+select.flags option[value=PK], select.flags option[value=pk] {background-position:0 -3873px}
+select.flags option[value=PL], select.flags option[value=pl] {background-position:0 -3895px}
+select.flags option[value=PM], select.flags option[value=pm] {background-position:0 -3917px}
+select.flags option[value=PN], select.flags option[value=pn] {background-position:0 -3939px}
+select.flags option[value=PR], select.flags option[value=pr] {background-position:0 -3961px}
+select.flags option[value=PS], select.flags option[value=ps] {background-position:0 -3983px}
+select.flags option[value=PT], select.flags option[value=pt] {background-position:0 -4005px}
+select.flags option[value=PW], select.flags option[value=pw] {background-position:0 -4027px}
+select.flags option[value=PY], select.flags option[value=py] {background-position:0 -4049px}
+select.flags option[value=QA], select.flags option[value=qa] {background-position:0 -4071px}
+select.flags option[value=RE], select.flags option[value=re] {background-position:0 -4093px}
+select.flags option[value=RO], select.flags option[value=ro] {background-position:0 -4115px}
+select.flags option[value=RS], select.flags option[value=rs] {background-position:0 -4137px}
+select.flags option[value=RU], select.flags option[value=ru] {background-position:0 -4159px}
+select.flags option[value=RW], select.flags option[value=rw] {background-position:0 -4181px}
+select.flags option[value=SA], select.flags option[value=sa] {background-position:0 -4203px}
+select.flags option[value=SB], select.flags option[value=sb] {background-position:0 -4225px}
+select.flags option[value=SC], select.flags option[value=sc] {background-position:0 -4247px}
+select.flags option[value=SD], select.flags option[value=sd] {background-position:0 -4291px}
+select.flags option[value=SE], select.flags option[value=se] {background-position:0 -4313px}
+select.flags option[value=SG], select.flags option[value=sg] {background-position:0 -4335px}
+select.flags option[value=SH], select.flags option[value=sh] {background-position:0 -4357px}
+select.flags option[value=SI], select.flags option[value=si] {background-position:0 -4379px}
+select.flags option[value=SJ], select.flags option[value=sj] {background-position:0 -4401px}
+select.flags option[value=SK], select.flags option[value=sk] {background-position:0 -4423px}
+select.flags option[value=SL], select.flags option[value=sl] {background-position:0 -4445px}
+select.flags option[value=SM], select.flags option[value=sm] {background-position:0 -4467px}
+select.flags option[value=SN], select.flags option[value=sn] {background-position:0 -4489px}
+select.flags option[value=SO], select.flags option[value=so] {background-position:0 -4511px}
+select.flags option[value=SR], select.flags option[value=sr] {background-position:0 -4533px}
+select.flags option[value=ST], select.flags option[value=st] {background-position:0 -4555px}
+select.flags option[value=SV], select.flags option[value=sv] {background-position:0 -4577px}
+select.flags option[value=SY], select.flags option[value=sy] {background-position:0 -4599px}
+select.flags option[value=SZ], select.flags option[value=sz] {background-position:0 -4621px}
+select.flags option[value=TC], select.flags option[value=tc] {background-position:0 -4643px}
+select.flags option[value=TD], select.flags option[value=td] {background-position:0 -4665px}
+select.flags option[value=TF], select.flags option[value=tf] {background-position:0 -4687px}
+select.flags option[value=TG], select.flags option[value=tg] {background-position:0 -4709px}
+select.flags option[value=TH], select.flags option[value=th] {background-position:0 -4731px}
+select.flags option[value=TJ], select.flags option[value=tj] {background-position:0 -4753px}
+select.flags option[value=TK], select.flags option[value=tk] {background-position:0 -4775px}
+select.flags option[value=TL], select.flags option[value=tl] {background-position:0 -4797px}
+select.flags option[value=TM], select.flags option[value=tm] {background-position:0 -4819px}
+select.flags option[value=TN], select.flags option[value=tn] {background-position:0 -4841px}
+select.flags option[value=TO], select.flags option[value=to] {background-position:0 -4863px}
+select.flags option[value=TR], select.flags option[value=tr] {background-position:0 -4885px}
+select.flags option[value=TT], select.flags option[value=tt] {background-position:0 -4907px}
+select.flags option[value=TV], select.flags option[value=tv] {background-position:0 -4929px}
+select.flags option[value=TW], select.flags option[value=tw] {background-position:0 -4951px}
+select.flags option[value=TZ], select.flags option[value=tz] {background-position:0 -4973px}
+select.flags option[value=UA], select.flags option[value=ua] {background-position:0 -4995px}
+select.flags option[value=UG], select.flags option[value=ug] {background-position:0 -5017px}
+select.flags option[value=UM], select.flags option[value=um] {background-position:0 -5039px}
+select.flags option[value=US], select.flags option[value=us] {background-position:0 -5061px}
+select.flags option[value=UY], select.flags option[value=uy] {background-position:0 -5083px}
+select.flags option[value=UZ], select.flags option[value=uz] {background-position:0 -5105px}
+select.flags option[value=VA], select.flags option[value=va] {background-position:0 -5127px}
+select.flags option[value=VC], select.flags option[value=vc] {background-position:0 -5149px}
+select.flags option[value=VE], select.flags option[value=ve] {background-position:0 -5171px}
+select.flags option[value=VG], select.flags option[value=vg] {background-position:0 -5193px}
+select.flags option[value=VI], select.flags option[value=vi] {background-position:0 -5215px}
+select.flags option[value=VN], select.flags option[value=vn] {background-position:0 -5237px}
+select.flags option[value=VU], select.flags option[value=vu] {background-position:0 -5259px}
+select.flags option[value=WF], select.flags option[value=wf] {background-position:0 -5303px}
+select.flags option[value=WS], select.flags option[value=ws] {background-position:0 -5325px}
+select.flags option[value=YE], select.flags option[value=ye] {background-position:0 -5347px}
+select.flags option[value=YT], select.flags option[value=yt] {background-position:0 -5369px}
+select.flags option[value=ZA], select.flags option[value=za] {background-position:0 -5391px}
+select.flags option[value=ZM], select.flags option[value=zm] {background-position:0 -5413px}
+select.flags option[value=ZW], select.flags option[value=zw] {background-position:0 -5435px}
